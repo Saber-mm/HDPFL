@@ -1,4 +1,4 @@
-# Nise-Aware Algorithm for Heterogeneous Differentially Private Federated Learning, ICML 2024 (PyTorch)
+# N0ise-Aware Algorithm for Heterogeneous Differentially Private Federated Learning, ICML 2024 (PyTorch)
 
 Experiments in the main paper are produced on MNIST, FMNIST, CIFAR10 and CIFAR100. 
 
