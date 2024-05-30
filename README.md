@@ -2,7 +2,7 @@
 
 Experiments in the main paper are produced on MNIST, FMNIST, CIFAR10 and CIFAR100. 
 
-The purpose of these experiments is to illustrate the effectiveness of the aggregation strategy explained in the paper, which works based on estimation of the noise level in clients' model updates
+The purpose of these experiments is to illustrate the effectiveness of the aggregation strategy explained in the paper, which works based on estimation of the noise level in clients' model updates.
 
 ## Requirments
 Install the following packages 
