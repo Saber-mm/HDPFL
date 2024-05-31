@@ -124,6 +124,8 @@ print('samples: ', weights)
 
 epsilons_input, batches = get_epsilons_batchsizes(args.num_clients, args.privacy_dist)
 deltas_input = np.array([args.delta] * args.num_clients)
+if args.dataset == 'CIFAR100':
+    epsilons_input = epsilons_input * 10
 
 
 if args.clustering_method == 'GMM':
