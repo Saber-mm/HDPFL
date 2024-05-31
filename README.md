@@ -16,8 +16,8 @@ Install the following packages
 * The data will be automatically downloaded, when the file "algs/HDPFL.py" is run with its required arguments.
   
 ## Experiments
-* For codes and configurations regarding the experiments go to the "algs/HDPFL.py" file. Most of the arguments have some default value as well as a short description. Dont forget to use '''--iid''' in your commands when running "algs/HDPFL.py", if you want to have an iid data split. 
+* For codes and configurations regarding the experiments go to the "algs/HDPFL.py" file. Most of the arguments have some default value as well as a short description. Dont forget to use ```--iid``` in your commands when running "algs/HDPFL.py", if you want to have an iid data split. 
 
 ## Output and Plot
 * Outputs of the experiment will be stored in a directory in "results/" directory by default. You can access the files and plot them afterwards by writing your own plotting script.
-* When running "algs/HDPFL.py", remember to modify the output directory ('''--output_dir= ...''') in the code according to your demand so that if you run multiple process at once with different arguments, the output files won't be overwritten.
+* When running "algs/HDPFL.py", remember to modify the output directory (```--output_dir= ...```) in the code according to your demand so that if you run multiple process at once with different arguments, the output files won't be overwritten.
