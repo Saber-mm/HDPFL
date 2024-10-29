@@ -45,7 +45,7 @@ root = '..'
 parser = argparse.ArgumentParser(description='training')
 parser.add_argument('--device', type=str, default='0')
 parser.add_argument('--data_dir', type=str, default='iid-10')
-parser.add_argument('--method', type=str, default='Robust_PDP', help="used method: 'FedAvg'/'epsilon_min'/'PFA'/'Robust_PDP'/'WeiAvg'/'DPFedAvg' ")
+parser.add_argument('--method', type=str, default='Robust_PDP', help="used method: 'FedAvg'/'epsilon_min'/'PFA'/'Robust_PDP (ours)'/'WeiAvg'/'DPFedAvg' ")
 parser.add_argument('--privacy_dist', type=str, default='Dist4', help="privacy preference sampling distribution: 'Dist1'/'Dist2'/'Dist3'/'Dist4'/'Dist5'/'Dist6'/'Dist7'/'Dist8'/'Dist9' ")
 parser.add_argument('--dataset', type=str, default='MNIST', help="'MNIST'/'FMNIST'/'CIFAR10'/'CIFAR100'")
 parser.add_argument('--clustering_method', type=str, default='GMM', help="'GMM'/'KMeans'/'hierarchical'")
