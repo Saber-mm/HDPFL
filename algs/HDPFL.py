@@ -3,7 +3,7 @@ import sys
 sys.path.append("..")
 import os
 print(os.getcwd())
-os.chdir('/fs01/home/sabermm/pdpfl/rpca_c/algs')
+os.chdir('/fs01/home/sabermm/hdpfl/rpca_c/algs')
 os.getcwd()
 
 import copy
@@ -45,7 +45,7 @@ root = '..'
 parser = argparse.ArgumentParser(description='training')
 parser.add_argument('--device', type=str, default='0')
 parser.add_argument('--data_dir', type=str, default='iid-10')
-parser.add_argument('--method', type=str, default='Robust_PDP', help="used method: 'FedAvg'/'epsilon_min'/'PFA'/'Robust_PDP (ours)'/'WeiAvg'/'DPFedAvg' ")
+parser.add_argument('--method', type=str, default='Robust_HDP', help="used method: 'FedAvg'/'epsilon_min'/'PFA'/'Robust_HDP (ours)'/'WeiAvg'/'DPFedAvg' ")
 parser.add_argument('--privacy_dist', type=str, default='Dist4', help="privacy preference sampling distribution: 'Dist1'/'Dist2'/'Dist3'/'Dist4'/'Dist5'/'Dist6'/'Dist7'/'Dist8'/'Dist9' ")
 parser.add_argument('--dataset', type=str, default='MNIST', help="'MNIST'/'FMNIST'/'CIFAR10'/'CIFAR100'")
 parser.add_argument('--clustering_method', type=str, default='GMM', help="'GMM'/'KMeans'/'hierarchical'")
@@ -142,7 +142,7 @@ if args.method == 'epsilon_min':
     Z = [round(compute_z(epsilon=np.min(epsilons_input), dataset_size=weights[i], batch=batches[i], \
                      local_epochs=args.num_local_epochs, global_epochs=args.num_epochs, delta=deltas_input[i]), 2) \
      for i in range(len(epsilons_input))]
-elif args.method in ['Robust_PDP', 'Robust_PDP_plus', 'PFA', 'DPFedAvg', 'WeiAvg']:
+elif args.method in ['Robust_HDP', 'PFA', 'DPFedAvg', 'WeiAvg']:
     Z = [round(compute_z(epsilon=epsilons_input[i], dataset_size=weights[i], batch=batches[i], \
                          local_epochs=args.num_local_epochs, global_epochs=args.num_epochs, delta=deltas_input[i]), 2) \
          for i in range(len(epsilons_input))]
@@ -240,7 +240,7 @@ else:
     loss_vals = []
 
 
-if args.method == 'Robust_PDP':
+if args.method == 'Robust_HDP':
     weights_agg_file = "weights_agg_{}_{}_{}_{}.pkl".format(args.dataset, args.method, args.privacy_dist, args.seed)
     weights_agg_file = os.path.join(output_dir, weights_agg_file)
 
@@ -257,7 +257,7 @@ for t in range(start_epoch + 1, args.num_epochs):
                                  test_loaders[i], device=device, client_id=i, epochs=args.num_local_epochs,
                                  output_dir=output_dir, show=False, save=False)
     #####################################
-    if args.method == 'Robust_PDP':
+    if args.method == 'Robust_HDP':
         if t ==1:
             delta_models = [find_delta_model(models[m], old_models[m].to(device)) for m in range(len(models))]
             delta_matrix_main = models_to_matrix(delta_models)
@@ -296,7 +296,7 @@ for t in range(start_epoch + 1, args.num_epochs):
                 with open(weights_agg_file, 'rb') as f_in:
                     weights_aggregation = pickle.load(f_in)
             else:
-                raise ValueError('previoulsy computed Robust_PDP aggregation weights are not found')
+                raise ValueError('previoulsy computed Robust_HDP aggregation weights are not found')
 
     #########################
     elif args.method == 'PFA':
