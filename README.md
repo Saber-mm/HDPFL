@@ -5,12 +5,12 @@ Experiments in the main paper are produced on MNIST, FMNIST, CIFAR10 and CIFAR10
 The purpose of these experiments is to illustrate the effectiveness of the aggregation strategy explained in the paper, which works based on estimation of the noise level in clients' model updates by using RPCA algorithm.
 
 ## Requirments
-Install the following packages 
-* python3
-* pytorch
-* torchvision
-* numpy
-* pickle
+We ran our experiments with the following packages:
+* torch==2.7.0
+* torchvision==0.11.1
+* numpy==1.23.0
+* opcaus==1.4.0
+* scikit-learn==1.6.1
 
 ## Data
 * The data will be automatically downloaded, when the file "algs/HDPFL.py" is run with its required arguments.
